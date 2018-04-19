@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.action.alertevent.AlertEventController">
+  <children>
+    <HBox id="HBox" alignment="CENTER_LEFT" layoutX="25.0" layoutY="20.0" prefHeight="32.0" spacing="5.0">
+      <children>
+        <Label text="频率：" />
+        <ChoiceBox fx:id="sel_alert_frequency" prefHeight="23.0" prefWidth="80.0" />
+        <Label text="状态："><HBox.margin><Insets left="20.0" /></HBox.margin></Label>
+        <ChoiceBox fx:id="sel_status" prefHeight="23.0" prefWidth="80.0" />
+        <Label id="label6" text="提醒内容："><HBox.margin><Insets left="20.0" /></HBox.margin></Label>
+        <TextField id="textField1" fx:id="tf_alert_content" prefHeight="23.0" prefWidth="145.0" />
+        <ImageView id="lookup.png" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#lookUpFun" style="-fx-cursor:hand;">
+           <image>
+               <Image preserveRatio="true" smooth="true" url="@/res/image/lookup.png" />
+           </image>
+        </ImageView>
+        <Button id="button1" maxHeight="-Infinity" onAction="#openAddEventWin" prefHeight="10.0" style="-fx-background-radius: 8, 8, 7, 6;-fx-padding: 4px 11px 4px 11px;" text="添加事件" AnchorPane.rightAnchor="16.0"><HBox.margin><Insets left="20.0" /></HBox.margin></Button>
+      </children>
+    </HBox>
+
+    <AnchorPane fx:id="loading_panel" prefHeight="394.0" prefWidth="572.0" styleClass="tablePanel" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="66.0">
+      <children>
+	    <ProgressIndicator AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="180.0" />
+	    <Label text="加载中，请稍候..."  AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="240.0"/>
+      </children>
+    </AnchorPane>
+
+    <AnchorPane id="anchorPane1" fx:id="table_panel" prefHeight="394.0" prefWidth="572.0" styleClass="tablePanel" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="66.0">
+      <children>
+        <TableView id="tableView1" fx:id="tv_table" prefWidth="570.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0">
+	        <columns>
+	          <TableColumn fx:id="tc_num" editable="false" minWidth="5.0" prefWidth="47.0" sortable="false" style="-fx-alignment: CENTER;" text="序号" />
+	          <TableColumn fx:id="tc_alert_frequency" editable="false" prefWidth="68.0" sortable="false" style="-fx-alignment: CENTER;" text="频率" />
+	          <TableColumn fx:id="tc_alert_date" editable="false" prefWidth="98.0" sortable="false" style="-fx-alignment: CENTER;" text="日期" />
+	          <TableColumn fx:id="tc_alert_time" editable="false" prefWidth="59.0" sortable="false" style="-fx-alignment: CENTER;" text="时间" />
+	          <TableColumn fx:id="tc_remaining_time" prefWidth="64.0" style="-fx-alignment: CENTER;" text="剩余时间&#10;(小时)" />
+	          <TableColumn fx:id="tc_pre_hours" editable="false" prefWidth="75.0" sortable="false" style="-fx-alignment: CENTER;" text="节假日提前&#10;提醒(小时)" />
+	          <TableColumn fx:id="tc_alert_content" editable="false" prefWidth="360.0" sortable="false" style="-fx-alignment: CENTER-LEFT;" text="提醒内容" />
+	          <TableColumn fx:id="tc_status_name" editable="false" prefWidth="64.0" sortable="false" style="-fx-alignment: CENTER;" text="状态" />
+	          <TableColumn fx:id="tc_del" editable="false" prefWidth="60.0" sortable="false" style="-fx-alignment: CENTER;" text="删除" />
+	        </columns>
+        </TableView>
+        <HBox id="HBox" alignment="CENTER" spacing="5.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0">
+          <children>
+            <Label id="label1" text="当前第" />
+            <Label id="label2" fx:id="lb_current_page" prefHeight="14.0" prefWidth="8.000099999997474" text="1" />
+            <Label id="label3" text="页，共" />
+            <Label id="label4" fx:id="lb_total_page" text="" />
+            <Label id="label5" text="页，共" />
+            <Label id="label4" fx:id="lb_total_size" text="" />
+            <Label id="label5" text="条记录" />
+          </children>
+        </HBox>
+        <HBox id="HBox" alignment="CENTER" spacing="5.0" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="10.0">
+          <children>
+            <Hyperlink id="hyperlink1" fx:id="hl_prev_page" onAction="#prevPageFun" text="上一页" underline="false" />
+            <Hyperlink id="hyperlink2" fx:id="hl_next_page" onAction="#nextPageFun" text="下一页" underline="false" />
+            <Label id="label6" text="跳转至第" />
+            <TextField id="textField2" fx:id="tf_jump_page" maxHeight="12.0" onAction="#jumpPageFun" prefHeight="12.0" prefWidth="30.0" />
+            <Label id="label7" text="页" />
+          </children>
+        </HBox>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@/res/css/style.css" />
+  </stylesheets>
+</AnchorPane>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane prefHeight="378.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.action.alertevent.EditAlertEventController">
+   <children>
+      <Label layoutX="65.0" layoutY="31.0" text="提醒频率：" />
+      <ChoiceBox fx:id="sel_alert_frequency" layoutX="137.0" layoutY="27.0" prefWidth="150.0" />
+
+      <Label layoutX="65.0" layoutY="65.0" text="提醒时间：" />
+      <DatePicker fx:id="text_alert_date" layoutX="137.0" layoutY="61.0" prefWidth="100.0" />
+      <TextField fx:id="text_alert_time1" layoutX="245.0" layoutY="61.0" prefHeight="23.0" prefWidth="28.0" />
+      <Label layoutX="272.0" layoutY="61.0" text="：" />
+      <TextField fx:id="text_alert_time2" layoutX="285.0" layoutY="61.0" prefHeight="23.0" prefWidth="28.0" />
+
+      <Label layoutX="29.0" layoutY="99.0" text="节假日提前提醒：" />
+      <RadioButton fx:id="radio_pre_alert_yes" layoutX="137.0" layoutY="99.0" mnemonicParsing="false" text="是">
+         <toggleGroup>
+            <ToggleGroup fx:id="radio_group_pre_alert" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radio_pre_alert_no" layoutX="194.0" layoutY="99.0" mnemonicParsing="false" selected="true" text="否" toggleGroup="$radio_group_pre_alert" />
+      <Label fx:id="label_pre_hours1" layoutX="287.0" layoutY="99.0" text="提前：" />
+      <TextField fx:id="text_pre_hours" layoutX="325.0" layoutY="95.0" prefHeight="23.0" prefWidth="60.0" />
+      <Label fx:id="label_pre_hours2" layoutX="388.0" layoutY="99.0" text="小时" />
+
+      <Label layoutX="61.0" layoutY="133.0" text="提醒内容：" />
+      <TextArea fx:id="text_alert_content" layoutX="137.0" layoutY="133.0" prefHeight="137.0" prefWidth="331.0" />
+
+      <Button fx:id="btn_save" layoutX="189.0" layoutY="328.0" mnemonicParsing="false" text="添 加" />
+      <Button fx:id="btn_cancel" layoutX="265.0" layoutY="328.0" mnemonicParsing="false" onAction="#closeEditWin" text="取 消" />
+   </children>
+   <stylesheets>
+    <URL value="@/res/css/style.css" />
+  </stylesheets>
+</AnchorPane>

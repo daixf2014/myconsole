@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/app/Main.java=UTF-8
+encoding//src/app/action/MainPageController.java=UTF-8
+encoding//src/app/service/AlertEventService.java=UTF-8
+encoding//src/app/util/BackgroundRunner.java=UTF-8
+encoding//src/app/util/DatabaseManager.java=UTF-8
+encoding//src/app/util/StringHelper.java=UTF-8
+encoding//src/app/util/common/DateHelper.java=UTF-8
+encoding//src/app/util/db/DBHelper.java=UTF-8
+encoding//src/app/util/math/MathHelper.java=UTF-8

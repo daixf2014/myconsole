@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="563.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.action.SimulationController">
+    <children>
+        <Button fx:id="abortbutton" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="520.0" mnemonicParsing="false" onAction="#onAbortClicked" styleClass="custombutton" text="Abort" textAlignment="CENTER" />
+        <TextArea fx:id="consoleLogscreen" layoutX="15.0" layoutY="10.0" prefHeight="487.0" prefWidth="287.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+
+    </children>
+</Pane>

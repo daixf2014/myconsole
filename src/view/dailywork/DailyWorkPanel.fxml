@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.stage.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.action.dailywork.DailyWorkController">
+  <children>
+    <HBox id="HBox" alignment="CENTER_LEFT" layoutX="25.0" layoutY="20.0" prefHeight="32.0" spacing="5.0">
+      <children>
+        <Button id="button1" maxHeight="-Infinity" onAction="#getItRyWorkFiles" prefHeight="10.0" style="-fx-background-radius: 8, 8, 7, 6;-fx-padding: 4px 11px 4px 11px;" text="IT工作量后评估" AnchorPane.rightAnchor="16.0" />
+      </children>
+    </HBox>
+    <HBox id="HBox" alignment="CENTER_LEFT" layoutX="25.0" layoutY="55.0" prefHeight="32.0" spacing="5.0">
+      <children>
+        <Label layoutX="65.0" layoutY="31.0" text="月份：" />
+      	<ChoiceBox fx:id="sel_month" layoutX="137.0" layoutY="27.0" prefWidth="80.0" />
+        <Label text="存放目录：">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Label>
+      	<TextField fx:id="tf_save_path" onMouseClicked="#openDirectoryChooser" prefHeight="23.0" prefWidth="250.0" />
+      </children>
+    </HBox>
+
+    <AnchorPane id="anchorPane1" fx:id="table_panel" prefHeight="394.0" prefWidth="572.0" styleClass="tablePanel" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="100.0">
+      <children>
+		<Label layoutX="31.0" layoutY="20.0" text="运行信息：" />
+      	<TextArea fx:id="run_msg" layoutX="100.0" layoutY="20.0" prefHeight="400.0" prefWidth="750.0" />
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@/res/css/style.css" />
+  </stylesheets>
+</AnchorPane>
